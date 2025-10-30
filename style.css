@@ -318,7 +318,7 @@ body {
     }
 }
 
-/* Spline 3D Viewer */
+/* Spline 3D Viewer
 .spline-container {
     flex: 1;
     width: 100%;
@@ -370,7 +370,7 @@ spline-viewer::part(logo) {
     white-space: nowrap;
     z-index: 10;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-}
+} */
 
 
 
