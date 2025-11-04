@@ -3,351 +3,771 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sidharth P N - Android Developer Portfolio</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <meta name="description" content="Sidharth P N - Android & Web Developer Portfolio">
+    <meta name="keywords" content="Android Developer, Web Developer, Kotlin, Firebase, Portfolio">
+    <meta name="author" content="Sidharth P N">
+    <title>Sidharth P N</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>S</text></svg>">
+    
+    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="style.css">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/animations.css">
+    <link rel="stylesheet" href="css/responsive.css">
 </head>
 <body>
+    <div class="gradient-bg"></div>
+    <canvas class="bg-canvas" id="particles"></canvas>
+
     <!-- Navigation -->
-    <nav class="navbar">
+    <nav>
         <div class="nav-container">
-            <div class="nav-logo">
-                <span></span>
-            </div>
-            <ul class="nav-menu">
-                <li class="nav-item"><a href="#home" class="nav-link">Home</a></li>
-                <li class="nav-item"><a href="#about" class="nav-link">About</a></li>
-                <li class="nav-item"><a href="#skills" class="nav-link">Skills</a></li>
-                <li class="nav-item"><a href="#projects" class="nav-link">Projects</a></li>
-                <li class="nav-item"><a href="#experience" class="nav-link">Experience</a></li>
-                <li class="nav-item"><a href="#certifications" class="nav-link">Certifications</a></li>
-                <li class="nav-item"><a href="#contact" class="nav-link">Contact</a></li>
-                <li class="nav-item"><button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
-                    <i class="fas fa-moon"></i>
-                </button></li>
+            <div class="logo">
+    <svg class="logo-svg" viewBox="0 0 60 60" width="48" height="48">
+        <defs>
+            <linearGradient id="logoGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" style="stop-color:#00ff88"/>
+                <stop offset="100%" style="stop-color:#00d4ff"/>
+            </linearGradient>
+            <filter id="shadow">
+                <feDropShadow dx="0" dy="2" stdDeviation="3" flood-color="#00ff88" flood-opacity="0.5"/>
+            </filter>
+        </defs>
+        
+        <!-- Outer circles -->
+        <circle cx="30" cy="30" r="27" 
+                fill="none" 
+                stroke="url(#logoGradient)" 
+                stroke-width="2.5"/>
+        
+        <circle cx="30" cy="30" r="23" 
+                fill="rgba(0, 255, 136, 0.06)"/>
+        
+        <circle cx="30" cy="30" r="23" 
+                fill="none" 
+                stroke="url(#logoGradient)" 
+                stroke-width="1" 
+                opacity="0.3"/>
+        
+        <!-- Professional S with shadow -->
+        <text x="30" y="41" 
+              text-anchor="middle" 
+              font-size="32" 
+              font-weight="900" 
+              fill="url(#logoGradient)" 
+              font-family="'Arial Black', sans-serif"
+              filter="url(#shadow)">S</text>
+        
+        <!-- Top accent -->
+        <path d="M 30 6 L 30 2" stroke="url(#logoGradient)" stroke-width="2" stroke-linecap="round"/>
+        <circle cx="30" cy="1" r="1.5" fill="url(#logoGradient)"/>
+    </svg>
+</div>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#education">Education</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li>
+                    <button class="download-btn" id="downloadBtn">
+                        <i class="fas fa-download"></i>
+                        <span class="btn-text">Resume</span>
+                    </button>
+                </li>
             </ul>
-            <div class="hamburger" id="hamburger">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
         </div>
     </nav>
 
     <!-- Hero Section -->
-    <section id="home" class="hero">
-        <div class="hero-bg"></div>
-        <div class="hero-particles" id="particles"></div>
-        <div class="hero-content">
-            <div class="hero-text">
-                <h1>Hi, I'm Sidharth P N <span class="wave">👋</span></h1>
-                <p class="subtitle">Android Developer</p>
-                <p class="location"><i class="fas fa-map-marker-alt"></i>Ernakulam, Kerala, India</p>
-                <a href="#projects" class="cta-button">View My Work</a>
+    <section class="hero" id="home">
+        <div class="hero-container">
+            <div class="hero-content">
+                <span class="hero-tag">👋 Welcome to my portfolio</span>
+                <h1>SIDHARTH P N</h1>
+                <div class="hero-subtitle">Android & Web Developer</div>
+                <p class="hero-description">
+                    Postgraduate student in Software Application Development at CUSAT, skilled in Android 
+                    and web technologies. Passionate about clean architecture, Firebase, and Kotlin app 
+                    development. Focused on delivering reliable, modern, and user-friendly software.
+                </p>
+
+                <div class="hero-stats">
+                    <div class="stat">
+                        <span class="stat-number">5+</span>
+                        <span class="stat-label">Projects</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">2+</span>
+                        <span class="stat-label">Years Experience</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">97%</span>
+                        <span class="stat-label">NPTEL Score</span>
+                    </div>
+                </div>
+
+                <div class="cta-buttons">
+                    <a href="#projects" class="btn btn-primary">
+                        <i class="fas fa-rocket"></i>
+                        View Projects
+                    </a>
+                    <a href="#contact" class="btn btn-outline">
+                        <i class="fas fa-envelope"></i>
+                        Get In Touch
+                    </a>
+                </div>
             </div>
-            <div class="spline-container">
-                <script type="module" src="https://unpkg.com/@splinetool/viewer@1.10.84/build/spline-viewer.js"></script>
-                <spline-viewer url="https://prod.spline.design/kesrJWjtiO8fvgaV/scene.splinecode"></spline-viewer>
-                <div class="spline-tooltip"></div>
+
+            <!-- Terminal Robot -->
+            <div class="terminal-robot">
+                <div class="terminal-window">
+                    <div class="terminal-header">
+                        <div class="terminal-dot dot-red"></div>
+                        <div class="terminal-dot dot-yellow"></div>
+                        <div class="terminal-dot dot-green"></div>
+                        <span class="terminal-title">visitor@sidharthpn ~ terminal</span>
+                    </div>
+                    <div class="terminal-body" id="terminalBody">
+                        <div class="pixel-art-container">
+                            <div class="pixel-art">
+                                <!-- Robot Head -->
+                                <div class="pixel-row">
+                                    <div class="pixel black"></div>
+                                    <div class="pixel black"></div>
+                                    <div class="pixel red"></div>
+                                    <div class="pixel yellow"></div>
+                                    <div class="pixel green"></div>
+                                    <div class="pixel blue"></div>
+                                    <div class="pixel black"></div>
+                                    <div class="pixel black"></div>
+                                </div>
+                                <div class="pixel-row">
+                                    <div class="pixel black"></div>
+                                    <div class="pixel black"></div>
+                                    <div class="pixel black"></div>
+                                    <div class="pixel black"></div>
+                                    <div class="pixel black"></div>
+                                    <div class="pixel black"></div>
+                                    <div class="pixel black"></div>
+                                    <div class="pixel black"></div>
+                                </div>
+                                <div class="pixel-row">
+                                    <div class="pixel black"></div>
+                                    <div class="pixel skin"></div>
+                                    <div class="pixel skin"></div>
+                                    <div class="pixel skin"></div>
+                                    <div class="pixel skin"></div>
+                                    <div class="pixel skin"></div>
+                                    <div class="pixel skin"></div>
+                                    <div class="pixel black"></div>
+                                </div>
+                                <div class="pixel-row">
+                                    <div class="pixel black"></div>
+                                    <div class="pixel skin"></div>
+                                    <div class="pixel skin"></div>
+                                    <div class="pixel skin"></div>
+                                    <div class="pixel skin"></div>
+                                    <div class="pixel skin"></div>
+                                    <div class="pixel skin"></div>
+                                    <div class="pixel black"></div>
+                                </div>
+                                <div class="pixel-row">
+                                    <div class="pixel black"></div>
+                                    <div class="pixel skin"></div>
+                                    <div class="pixel eye" id="leftEye">
+                                        <div class="pupil" id="leftPupil"></div>
+                                    </div>
+                                    <div class="pixel skin"></div>
+                                    <div class="pixel skin"></div>
+                                    <div class="pixel eye" id="rightEye">
+                                        <div class="pupil" id="rightPupil"></div>
+                                    </div>
+                                    <div class="pixel skin"></div>
+                                    <div class="pixel black"></div>
+                                </div>
+                                <div class="pixel-row">
+                                    <div class="pixel black"></div>
+                                    <div class="pixel skin"></div>
+                                    <div class="pixel skin"></div>
+                                    <div class="pixel skin"></div>
+                                    <div class="pixel skin"></div>
+                                    <div class="pixel skin"></div>
+                                    <div class="pixel skin"></div>
+                                    <div class="pixel black"></div>
+                                </div>
+                                <div class="pixel-row">
+                                    <div class="pixel black"></div>
+                                    <div class="pixel skin"></div>
+                                    <div class="pixel black"></div>
+                                    <div class="pixel black"></div>
+                                    <div class="pixel black"></div>
+                                    <div class="pixel black"></div>
+                                    <div class="pixel skin"></div>
+                                    <div class="pixel black"></div>
+                                </div>
+                                <div class="pixel-row">
+                                    <div class="pixel black"></div>
+                                    <div class="pixel black"></div>
+                                    <div class="pixel red"></div>
+                                    <div class="pixel red"></div>
+                                    <div class="pixel red"></div>
+                                    <div class="pixel red"></div>
+                                    <div class="pixel black"></div>
+                                    <div class="pixel black"></div>
+                                </div>
+                                <div class="pixel-row">
+                                    <div class="pixel black"></div>
+                                    <div class="pixel black"></div>
+                                    <div class="pixel red"></div>
+                                    <div class="pixel red"></div>
+                                    <div class="pixel red"></div>
+                                    <div class="pixel red"></div>
+                                    <div class="pixel black"></div>
+                                    <div class="pixel black"></div>
+                                </div>
+                            </div>
+                            <div class="typing-indicator" id="typingIndicator">👀 watching you type...</div>
+                        </div>
+
+                        <div id="output">
+                            <div class="command-output" style="color: var(--primary);">🤖 Welcome to Sidharth's Interactive Terminal!</div>
+                            <div class="command-output">Type 'help' for available commands.</div>
+                            <div class="command-output">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</div>
+                        </div>
+
+                        <div class="terminal-input-line">
+                            <span class="prompt">visitor@sidharthpn:~$</span>
+                            <input type="text" id="terminal-input" autocomplete="off" placeholder="Type a command...">
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- About Section -->
-    <section id="about" class="about fade-in">
-        <h2 class="section-title">About Me</h2>
-        <div class="about-content">
+    <section class="section" id="about">
+        <div class="section-header">
+            <span class="section-tag">About Me</span>
+            <h2 class="section-title">Who Am I?</h2>
+            <p class="section-description">
+                A dedicated Android & Web Developer passionate about creating innovative solutions
+            </p>
+        </div>
+
+        <div class="about-grid">
             <div class="about-image">
-                <i class="fas fa-user"></i>
+                <div class="profile-card">
+                    <div class="profile-avatar">
+                        📱
+                    </div>
+                    <div class="profile-info">
+                        <div class="info-item">
+                            <div class="info-icon"><i class="fas fa-user"></i></div>
+                            <div class="info-content">
+                                <h4>Name</h4>
+                                <p>Sidharth P N</p>
+                            </div>
+                        </div>
+                        <div class="info-item">
+                            <div class="info-icon"><i class="fas fa-envelope"></i></div>
+                            <div class="info-content">
+                                <h4>Email</h4>
+                                <p>sidharthpn447@gmail.com</p>
+                            </div>
+                        </div>
+                        <div class="info-item">
+                            <div class="info-icon"><i class="fas fa-map-marker-alt"></i></div>
+                            <div class="info-content">
+                                <h4>Location</h4>
+                                <p>Ernakulam, Kerala, India</p>
+                            </div>
+                        </div>
+                        <div class="info-item">
+                            <div class="info-icon"><i class="fas fa-globe"></i></div>
+                            <div class="info-content">
+                                <h4>Website</h4>
+                                <p>sidharthpn.dev</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="about-text">
-                <p>Postgraduate student in Software Application Development at CUSAT, skilled in Android and web technologies. Passionate about clean architecture, Firebase, and Kotlin app development. Focused on delivering reliable, modern, and user-friendly software.</p>
-                <div class="skill-bars">
-                    <div class="skill-bar">
-                        <div class="skill-info">
-                            <span>Android Development</span>
-                            <span>90%</span>
-                        </div>
-                        <div class="skill-progress">
-                            <div class="skill-progress-bar" style="width: 0%" data-width="90%"></div>
-                        </div>
+
+            <div class="about-content">
+                <h3>Android & Web Developer</h3>
+                <p>
+                    I'm a passionate developer currently pursuing M.Voc in Software Application Development at 
+                    Cochin University of Science and Technology (CUSAT). With expertise in Android and web 
+                    technologies, I specialize in building modern, user-friendly applications.
+                </p>
+                <p>
+                    My technical journey is driven by a strong foundation in Kotlin, Firebase, and clean 
+                    architecture principles. I have hands-on experience in developing Android applications 
+                    with MVVM architecture, implementing robust authentication systems, and creating seamless 
+                    user experiences.
+                </p>
+                <p>
+                    During my internship at BNBK Hub, I built a comprehensive Task Management App using 
+                    cutting-edge technologies. I'm committed to writing clean, maintainable code and 
+                    delivering reliable software solutions that make a difference.
+                </p>
+
+                <div class="about-buttons">
+                    <a href="#contact" class="btn btn-primary">
+                        <i class="fas fa-paper-plane"></i>
+                        Hire Me
+                    </a>
+                    <button class="btn btn-outline" id="downloadBtnAbout">
+                        <i class="fas fa-download"></i>
+                        Download CV
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section class="section" id="education">
+        <div class="section-header">
+            <span class="section-tag">Education</span>
+            <h2 class="section-title">Academic Journey</h2>
+            <p class="section-description">
+                My educational background and qualifications
+            </p>
+        </div>
+
+        <div class="timeline">
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <h3>M.Voc in Software Application Development</h3>
+                    <p class="institution">Cochin University of Science and Technology (CUSAT), Kerala</p>
+                    <p class="duration"><i class="fas fa-calendar-alt"></i> 2024 - 2026 (Pursuing)</p>
+                    <p class="description">
+                        Focusing on advanced software development techniques, mobile application development, 
+                        and modern web technologies. Gaining expertise in Android development, Firebase integration, 
+                        and full-stack development.
+                    </p>
+                    <span class="grade"><i class="fas fa-trophy"></i> Currently Pursuing</span>
+                </div>
+                <div class="timeline-empty"></div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-empty"></div>
+                <div class="timeline-content">
+                    <h3>Bachelor of Computer Applications (BCA)</h3>
+                    <p class="institution">NSS College Rajakumary, Kerala</p>
+                    <p class="duration"><i class="fas fa-calendar-alt"></i> 2021 - 2024</p>
+                    <p class="description">
+                        Completed comprehensive study in computer applications covering programming fundamentals, 
+                        database management, web development, and software engineering principles.
+                    </p>
+                    <span class="grade"><i class="fas fa-award"></i> Completed</span>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <h3>Higher Secondary Education</h3>
+                    <p class="institution">GHSS Peruvallur, Kerala</p>
+                    <p class="duration"><i class="fas fa-calendar-alt"></i> 2019 - 2021</p>
+                    <p class="description">
+                        Completed higher secondary education with strong foundation in Computer Science, 
+                        laying the groundwork for my technical career.
+                    </p>
+                    <span class="grade"><i class="fas fa-award"></i> Completed</span>
+                </div>
+                <div class="timeline-empty"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section class="section" id="experience">
+        <div class="section-header">
+            <span class="section-tag">Experience</span>
+            <h2 class="section-title">Work Experience</h2>
+            <p class="section-description">
+                Professional journey and internships
+            </p>
+        </div>
+
+        <div class="experience-container">
+            <div class="experience-card">
+                <div class="experience-icon">
+                    <i class="fab fa-android"></i>
+                </div>
+                <div class="experience-content">
+                    <h3>Android Development Intern</h3>
+                    <p class="company"><i class="fas fa-building"></i> BNBK Hub, Kakkanad</p>
+                    <p class="duration"><i class="fas fa-calendar"></i> 2025</p>
+                    <ul class="experience-list">
+                        <li><i class="fas fa-check-circle"></i> Built a Task Management App using Kotlin, Firebase Auth, Firestore, and Storage</li>
+                        <li><i class="fas fa-check-circle"></i> Implemented CRUD features with MVVM architecture and role-based access</li>
+                        <li><i class="fas fa-check-circle"></i> Collaborated on GitHub for version control and teamwork</li>
+                        <li><i class="fas fa-check-circle"></i> Developed clean, maintainable code following industry best practices</li>
+                    </ul>
+                    <div class="tech-stack">
+                        <span class="tech-tag">Kotlin</span>
+                        <span class="tech-tag">Firebase</span>
+                        <span class="tech-tag">MVVM</span>
+                        <span class="tech-tag">Git</span>
                     </div>
-                    <div class="skill-bar">
-                        <div class="skill-info">
-                            <span>Kotlin & MVVM</span>
-                            <span>85%</span>
-                        </div>
-                        <div class="skill-progress">
-                            <div class="skill-progress-bar" style="width: 0%" data-width="85%"></div>
-                        </div>
-                    </div>
-                    <div class="skill-bar">
-                        <div class="skill-info">
-                            <span>Firebase & Cloud</span>
-                            <span>80%</span>
-                        </div>
-                        <div class="skill-progress">
-                            <div class="skill-progress-bar" style="width: 0%" data-width="80%"></div>
-                        </div>
-                    </div>
+                </div>
+            </div>
+
+            <div class="experience-card">
+                <div class="experience-icon">
+                    <i class="fas fa-hands-helping"></i>
+                </div>
+                <div class="experience-content">
+                    <h3>Volunteer</h3>
+                    <p class="company"><i class="fas fa-building"></i> International Conclave, CUSAT</p>
+                    <p class="duration"><i class="fas fa-calendar"></i> January 2025</p>
+                    <ul class="experience-list">
+                        <li><i class="fas fa-check-circle"></i> Supported event logistics and coordination</li>
+                        <li><i class="fas fa-check-circle"></i> Assisted in session management and participant engagement</li>
+                        <li><i class="fas fa-check-circle"></i> Demonstrated strong teamwork and communication skills</li>
+                    </ul>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Skills Section -->
-    <section id="skills" class="skills fade-in">
-        <h2 class="section-title">Technical Skills</h2>
+    <section class="section" id="skills">
+        <div class="section-header">
+            <span class="section-tag">Skills</span>
+            <h2 class="section-title">Technical Expertise</h2>
+            <p class="section-description">
+                Technologies and tools I work with
+            </p>
+        </div>
+
         <div class="skills-grid">
-            <div class="skill-category">
-                <h3><i class="fas fa-code"></i> Languages & Tools</h3>
+            <div class="skill-card">
+                <div class="skill-icon">
+                    <i class="fab fa-android"></i>
+                </div>
+                <h3>Android Development</h3>
                 <div class="skill-tags">
                     <span class="skill-tag">Kotlin</span>
                     <span class="skill-tag">XML</span>
-                    <span class="skill-tag">PHP</span>
-                    <span class="skill-tag">HTML</span>
-                    <span class="skill-tag">CSS</span>
-                    <span class="skill-tag">SQL</span>
+                    <span class="skill-tag">MVVM</span>
+                    <span class="skill-tag">Room DB</span>
+                    <span class="skill-tag">Firebase</span>
+                    <span class="skill-tag">Android Studio</span>
                 </div>
             </div>
-            <div class="skill-category">
-                <h3><i class="fas fa-database"></i> Databases</h3>
+
+            <div class="skill-card">
+                <div class="skill-icon">
+                    <i class="fas fa-code"></i>
+                </div>
+                <h3>Web Development</h3>
+                <div class="skill-tags">
+                    <span class="skill-tag">PHP</span>
+                    <span class="skill-tag">Python Django</span>
+                    <span class="skill-tag">HTML5</span>
+                    <span class="skill-tag">CSS3</span>
+                    <span class="skill-tag">JavaScript</span>
+                </div>
+            </div>
+
+            <div class="skill-card">
+                <div class="skill-icon">
+                    <i class="fas fa-database"></i>
+                </div>
+                <h3>Databases</h3>
                 <div class="skill-tags">
                     <span class="skill-tag">Room DB</span>
                     <span class="skill-tag">Firebase Firestore</span>
                     <span class="skill-tag">MongoDB</span>
+                    <span class="skill-tag">SQL</span>
                 </div>
             </div>
-            <div class="skill-category">
-                <h3><i class="fas fa-tools"></i> Platforms</h3>
+
+            <div class="skill-card">
+                <div class="skill-icon">
+                    <i class="fas fa-tools"></i>
+                </div>
+                <h3>Tools & Platforms</h3>
                 <div class="skill-tags">
                     <span class="skill-tag">Firebase</span>
-                    <span class="skill-tag">Git</span>
+                    <span class="skill-tag">Git & GitHub</span>
                     <span class="skill-tag">Android Studio</span>
                     <span class="skill-tag">VS Code</span>
+                    <span class="skill-tag">Agile</span>
                 </div>
             </div>
-        </div>
 
-        <!-- Soft Skills -->
-        <div class="soft-skills">
-            <h3><i class="fas fa-lightbulb"></i> Soft Skills</h3>
-            <div class="soft-skill-tags">
-                <span class="soft-skill-tag">Adaptability</span>
-                <span class="soft-skill-tag">Teamwork</span>
-                <span class="soft-skill-tag">Communication</span>
-                <span class="soft-skill-tag">Problem Solving</span>
-                <span class="soft-skill-tag">Time Management</span>
-                <span class="soft-skill-tag">Creativity</span>
+            <div class="skill-card">
+                <div class="skill-icon">
+                    <i class="fas fa-lightbulb"></i>
+                </div>
+                <h3>Soft Skills</h3>
+                <div class="skill-tags">
+                    <span class="skill-tag">Adaptability</span>
+                    <span class="skill-tag">Teamwork</span>
+                    <span class="skill-tag">Communication</span>
+                    <span class="skill-tag">Problem Solving</span>
+                    <span class="skill-tag">Time Management</span>
+                    <span class="skill-tag">Creativity</span>
+                </div>
             </div>
-        </div>
 
-        <!-- Languages Known -->
-        <div class="languages-section">
-            <h3><i class="fas fa-language"></i> Languages Known</h3>
-            <div class="language-tags">
-                <span class="language-tag">English</span>
-                <span class="language-tag">Malayalam</span>
-                <span class="language-tag">Hindi (Basic)</span>
-                <span class="language-tag">Tamil (Basic)</span>
+            <div class="skill-card">
+                <div class="skill-icon">
+                    <i class="fas fa-language"></i>
+                </div>
+                <h3>Languages</h3>
+                <div class="skill-tags">
+                    <span class="skill-tag">English</span>
+                    <span class="skill-tag">Malayalam</span>
+                    <span class="skill-tag">Hindi (Basic)</span>
+                    <span class="skill-tag">Tamil (Basic)</span>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- Projects Section -->
-    <section id="projects" class="projects fade-in">
-        <h2 class="section-title">Featured Projects</h2>
+    <section class="section" id="projects">
+        <div class="section-header">
+            <span class="section-tag">Projects</span>
+            <h2 class="section-title">Featured Work</h2>
+            <p class="section-description">
+                Academic and professional projects
+            </p>
+        </div>
+
         <div class="projects-grid">
             <div class="project-card">
-                <div class="project-image">
-                    <i class="fas fa-tasks"></i>
-                </div>
+                <div class="project-image">📱</div>
                 <div class="project-content">
                     <h3>Task Management App</h3>
-                    <p>A robust task management application built during internship at BNBK Hub with user authentication, cloud storage, MVVM architecture, and role-based access control.</p>
-                    <div class="tech-stack">
-                        <span class="tech-badge">Kotlin</span>
-                        <span class="tech-badge">Firebase Auth</span>
-                        <span class="tech-badge">Firestore</span>
-                        <span class="tech-badge">Storage</span>
-                        <span class="tech-badge">MVVM</span>
+                    <p>
+                        Comprehensive Android application built during internship at BNBK Hub. Features include 
+                        Firebase authentication, real-time data sync, role-based access control, and CRUD operations 
+                        with clean MVVM architecture.
+                    </p>
+                    <div class="project-tech">
+                        <span class="tech-tag">Kotlin</span>
+                        <span class="tech-tag">Firebase</span>
+                        <span class="tech-tag">Firestore</span>
+                        <span class="tech-tag">MVVM</span>
                     </div>
                     <div class="project-links">
-                        <a href="https://github.com/SidharthPn" class="project-link" target="_blank" rel="noopener noreferrer">
-                            <i class="fab fa-github fa-2x"></i>
+                        <a href="https://github.com/SidharthPn" target="_blank" class="project-link">
+                            <i class="fab fa-github"></i>
+                            Code
                         </a>
                     </div>
                 </div>
             </div>
 
             <div class="project-card">
-                <div class="project-image project-image-2">
-                    <i class="fas fa-car-side"></i>
-                </div>
+                <div class="project-image">🚗</div>
                 <div class="project-content">
                     <h3>Car Wash Management System</h3>
-                    <p>Complete online system for booking and managing car wash services with secure authentication, booking management, and service tracking features.</p>
-                    <div class="tech-stack">
-                        <span class="tech-badge">PHP</span>
-                        <span class="tech-badge">MySQL</span>
-                        <span class="tech-badge">HTML</span>
-                        <span class="tech-badge">CSS</span>
+                    <p>
+                        Online system for booking and managing car wash services built with PHP. 
+                        Features user registration, service booking, admin dashboard, and payment integration.
+                    </p>
+                    <div class="project-tech">
+                        <span class="tech-tag">PHP</span>
+                        <span class="tech-tag">MySQL</span>
+                        <span class="tech-tag">HTML/CSS</span>
+                        <span class="tech-tag">JavaScript</span>
                     </div>
                     <div class="project-links">
-                        <a href="https://github.com/SidharthPn" class="project-link" target="_blank" rel="noopener noreferrer">
-                            <i class="fab fa-github fa-2x"></i>
+                        <a href="https://github.com/SidharthPn" target="_blank" class="project-link">
+                            <i class="fab fa-github"></i>
+                            Code
                         </a>
                     </div>
                 </div>
             </div>
 
             <div class="project-card">
-                <div class="project-image project-image-3">
-                    <i class="fas fa-car"></i>
-                </div>
+                <div class="project-image">🚘</div>
                 <div class="project-content">
                     <h3>Car Rental Management System</h3>
-                    <p>Django-based web application with secure login, comprehensive booking system, and admin panels for efficient car rental management.</p>
-                    <div class="tech-stack">
-                        <span class="tech-badge">Python</span>
-                        <span class="tech-badge">Django</span>
-                        <span class="tech-badge">SQLite</span>
+                    <p>
+                        Full-featured car rental platform developed using Python Django. Includes secure login, 
+                        vehicle booking system, admin panels, and comprehensive rental management features.
+                    </p>
+                    <div class="project-tech">
+                        <span class="tech-tag">Python</span>
+                        <span class="tech-tag">Django</span>
+                        <span class="tech-tag">SQLite</span>
+                        <span class="tech-tag">Bootstrap</span>
                     </div>
                     <div class="project-links">
-                        <a href="https://github.com/SidharthPn" class="project-link" target="_blank" rel="noopener noreferrer">
-                            <i class="fab fa-github fa-2x"></i>
+                        <a href="https://github.com/SidharthPn" target="_blank" class="project-link">
+                            <i class="fab fa-github"></i>
+                            Code
                         </a>
                     </div>
                 </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Experience & Education Section -->
-    <section id="experience" class="experience fade-in">
-        <h2 class="section-title">Experience & Education</h2>
-        <div class="timeline">
-            <div class="timeline-item">
-                <div class="timeline-content">
-                    <h3>Android Development Intern</h3>
-                    <p class="timeline-date"><i class="fas fa-calendar"></i> 2025</p>
-                    <p><strong>BNBK Hub, Kakkanad</strong></p>
-                    <ul class="timeline-list">
-                        <li>Built a Task Management App using Kotlin, Firebase Auth, Firestore, and Storage</li>
-                        <li>Implemented CRUD features with MVVM architecture and role-based access</li>
-                        <li>Collaborated on GitHub for version control and teamwork</li>
-                    </ul>
-                </div>
-                <div class="timeline-dot"></div>
-            </div>
-
-            <div class="timeline-item">
-                <div class="timeline-content">
-                    <h3>M.Voc in Software Application Development</h3>
-                    <p class="timeline-date"><i class="fas fa-calendar"></i> 2024 - 2026 (Pursuing)</p>
-                    <p><strong>Cochin University of Science and Technology (CUSAT), Kerala</strong></p>
-                    <p class="timeline-description">Specializing in modern software development practices, mobile technologies, and full-stack development.</p>
-                </div>
-                <div class="timeline-dot"></div>
-            </div>
-
-            <div class="timeline-item">
-                <div class="timeline-content">
-                    <h3>Bachelor of Computer Applications (BCA)</h3>
-                    <p class="timeline-date"><i class="fas fa-calendar"></i> 2021 - 2024</p>
-                    <p><strong>NSS College Rajakumary, Kerala</strong></p>
-                    <p class="timeline-description">Foundation in computer science, programming fundamentals, and software development.</p>
-                </div>
-                <div class="timeline-dot"></div>
-            </div>
-
-            <div class="timeline-item">
-                <div class="timeline-content">
-                    <h3>Higher Secondary Education</h3>
-                    <p class="timeline-date"><i class="fas fa-calendar"></i> 2019 - 2021</p>
-                    <p><strong>GHSS Peruvallur, Kerala</strong></p>
-                    <p class="timeline-description">Completed secondary education with focus on science and mathematics.</p>
-                </div>
-                <div class="timeline-dot"></div>
             </div>
         </div>
     </section>
 
     <!-- Certifications Section -->
-    <section id="certifications" class="certifications fade-in">
-        <h2 class="section-title">Certifications & Activities</h2>
-        <div class="cert-grid">
+    <section class="section">
+        <div class="section-header">
+            <span class="section-tag">Certifications</span>
+            <h2 class="section-title">Achievements</h2>
+            <p class="section-description">
+                Certifications and recognitions
+            </p>
+        </div>
+
+        <div class="certifications-grid">
             <div class="cert-card">
                 <div class="cert-icon">
                     <i class="fas fa-certificate"></i>
                 </div>
                 <h3>Generative AI for Everyday Life</h3>
-                <p class="cert-provider">SWAYAM / NPTEL</p>
-                <p class="cert-description">4-credit course offered by Krishna Kanta Handiqui State Open University</p>
-                <p class="cert-date">July 2025</p>
-                <p class="cert-score">97%</p>
-            </div>
-
-            <div class="volunteer-card">
-                <div class="cert-icon">
-                    <i class="fas fa-hands-helping"></i>
+                <p class="cert-issuer">SWAYAM / NPTEL</p>
+                <p class="cert-issuer">Krishna Kanta Handiqui State Open University</p>
+                <p class="cert-date"><i class="fas fa-calendar"></i> July 2025</p>
+                <div class="cert-score">
+                    <i class="fas fa-star"></i> 97% Score | 4 Credits
                 </div>
-                <h3>Volunteer - International Conclave</h3>
-                <p class="cert-provider">CUSAT</p>
-                <p class="cert-description">Supported event logistics and session coordination at the International Conclave held at CUSAT</p>
-                <p class="cert-date">January 2025</p>
             </div>
         </div>
     </section>
 
     <!-- Contact Section -->
-    <section id="contact" class="contact fade-in">
-        <h2 class="section-title">Get In Touch</h2>
-        <div class="contact-content">
-            <p class="contact-intro">I'm currently looking for new opportunities and exciting projects. Whether you have a question or just want to say hi, feel free to reach out!</p>
-            
-            <div class="contact-links">
-                <a href="mailto:sidharthpn447@gmail.com" class="contact-link">
-                    <i class="fas fa-envelope fa-2x"></i>
-                    <span>sidharthpn447@gmail.com</span>
-                </a>
-                <a href="https://linkedin.com/in/sidharth-pn-64aa07267" class="contact-link" target="_blank" rel="noopener noreferrer">
-                    <i class="fab fa-linkedin fa-2x"></i>
-                    <span>LinkedIn</span>
-                </a>
-                <a href="https://github.com/SidharthPn" class="contact-link" target="_blank" rel="noopener noreferrer">
-                    <i class="fab fa-github fa-2x"></i>
-                    <span>GitHub</span>
-                </a>
+    <section class="section" id="contact">
+        <div class="section-header">
+            <span class="section-tag">Contact</span>
+            <h2 class="section-title">Get In Touch</h2>
+            <p class="section-description">
+                Feel free to reach out for collaborations or just a friendly chat
+            </p>
+        </div>
+
+        <div class="contact-grid">
+            <div class="contact-info">
+                <div class="contact-card">
+                    <div class="contact-icon">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <div class="contact-details">
+                        <h3>Email</h3>
+                        <p><a href="mailto:sidharthpn447@gmail.com">sidharthpn447@gmail.com</a></p>
+                    </div>
+                </div>
+
+                <div class="contact-card">
+                    <div class="contact-icon">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                    <div class="contact-details">
+                        <h3>Location</h3>
+                        <p>Ernakulam, Kerala, India</p>
+                    </div>
+                </div>
+
+                <div class="contact-card">
+                    <div class="contact-icon">
+                        <i class="fab fa-github"></i>
+                    </div>
+                    <div class="contact-details">
+                        <h3>GitHub</h3>
+                        <p><a href="https://github.com/SidharthPn" target="_blank">@SidharthPn</a></p>
+                    </div>
+                </div>
+
+                <div class="contact-card">
+                    <div class="contact-icon">
+                        <i class="fab fa-linkedin"></i>
+                    </div>
+                    <div class="contact-details">
+                        <h3>LinkedIn</h3>
+                        <p><a href="https://linkedin.com/in/sidharth-pn-64aa07267" target="_blank">Sidharth P N</a></p>
+                    </div>
+                </div>
+
+                <div class="contact-card">
+                    <div class="contact-icon">
+                        <i class="fas fa-globe"></i>
+                    </div>
+                    <div class="contact-details">
+                        <h3>Website</h3>
+                        <p><a href="https://sidharthpn.dev" target="_blank">sidharthpn.dev</a></p>
+                    </div>
+                </div>
             </div>
 
-            <form class="contact-form" id="contactForm" novalidate>
-                <div class="form-group">
-                    <input type="text" placeholder="Your Name" required>
-                </div>
-                <div class="form-group">
-                    <input type="email" placeholder="Your Email" required>
-                </div>
-                <div class="form-group">
-                    <textarea rows="5" placeholder="Your Message" required></textarea>
-                </div>
-                <button type="submit" class="submit-btn">Send Message</button>
-            </form>
+            <div class="contact-form">
+                <form id="contactForm">
+                    <div class="form-group">
+                        <label for="name">Your Name</label>
+                        <input type="text" id="name" name="name" required placeholder="John Doe">
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Your Email</label>
+                        <input type="email" id="email" name="email" required placeholder="john@example.com">
+                    </div>
+                    <div class="form-group">
+                        <label for="subject">Subject</label>
+                        <input type="text" id="subject" name="subject" required placeholder="Project Inquiry">
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" name="message" required placeholder="Your message here..."></textarea>
+                    </div>
+                    <button type="submit" class="submit-btn">
+                        <i class="fas fa-paper-plane"></i>
+                        Send Message
+                    </button>
+                </form>
+            </div>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer class="footer">
-        <p>&copy; 2025 Sidharth P N. All rights reserved.</p>
-        <p class="footer-text">Built with HTML, CSS & JavaScript</p>
+    <footer>
+        <div class="social-links">
+            <a href="https://github.com/SidharthPn" target="_blank" class="social-link" aria-label="GitHub">
+                <i class="fab fa-github"></i>
+            </a>
+            <a href="https://linkedin.com/in/sidharth-pn-64aa07267" target="_blank" class="social-link" aria-label="LinkedIn">
+                <i class="fab fa-linkedin-in"></i>
+            </a>
+            <a href="https://sidharthpn.dev" target="_blank" class="social-link" aria-label="Website">
+                <i class="fas fa-globe"></i>
+            </a>
+            <a href="mailto:sidharthpn447@gmail.com" class="social-link" aria-label="Email">
+                <i class="fas fa-envelope"></i>
+            </a>
+        </div>
+        <p class="footer-text">
+            &copy; 2025 Sidharth P N. All rights reserved.
+        </p>
+        <p class="footer-text" style="margin-top: 0.5rem; font-size: 0.85rem;">
+            Designed & Built with <span style="color: var(--accent);">❤️</span> and lots of ☕
+        </p>
     </footer>
 
-    <!-- Scroll to Top Button -->
-    <button class="scroll-top" id="scrollTop" aria-label="Scroll to top">
-        <i class="fas fa-arrow-up"></i>
-    </button>
-
-    <script src="script.js"></script>
+    <!-- JavaScript Files -->
+    <script src="js/particles.js"></script>
+    <script src="js/terminal.js"></script>
+    <script src="js/main.js"></script>
 </body>
 </html>
