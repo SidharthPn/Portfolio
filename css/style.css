@@ -18,7 +18,189 @@
     --text-light: #ffffff;
     --text-gray: #a0a0b0;
 }
+/* ===================================
+   LOADING SCREEN WITH PIXEL CHARACTER
+   =================================== */
 
+#loading-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #050816; /* dark black/blue */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10000;
+    transition: opacity 0.5s, visibility 0.5s;
+}
+
+#loading-screen.hidden {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.loading-container {
+    text-align: center;
+}
+
+/* Character Styles */
+.Character {
+    width: calc(32px * 6);
+    height: calc(32px * 6);
+    overflow: hidden;
+    position: relative;
+    margin: 0 auto 2rem;
+}
+
+.Character_spritesheet {
+    animation: moveSpritesheet 0.8s steps(4) infinite;
+    width: calc(128px * 6);
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.Character_shadow {
+    position: absolute;
+    width: calc(32px * 6);
+    height: calc(32px * 6);
+}
+
+.pixelart {
+    image-rendering: pixelated;
+    image-rendering: -moz-crisp-edges;
+    image-rendering: crisp-edges;
+}
+
+/* Different facing directions (optional) */
+.face-down { top: 0; }
+.face-right { top: calc(-32px * 6); }
+.face-up { top: calc(-64px * 6); }
+.face-left { top: calc(-96px * 6); }
+
+@keyframes moveSpritesheet {
+    from {
+        transform: translate3d(0px, 0, 0);
+    }
+    to {
+        transform: translate3d(-100%, 0, 0);
+    }
+}
+
+/* Loading Text */
+.loading-text {
+    margin-top: 2rem;
+}
+
+.loading-name {
+    display: block;
+    font-size: 2.5rem;
+    font-weight: 900;
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 0.5rem;
+    letter-spacing: 2px;
+}
+
+.loading-subtitle {
+    display: block;
+    color: var(--text-gray);
+    font-size: 1.2rem;
+    margin-bottom: 1.5rem;
+    font-weight: 300;
+}
+
+/* Loading Bar */
+.loading-bar {
+    width: 300px;
+    height: 6px;
+    background: rgba(0, 255, 136, 0.2);
+    border-radius: 10px;
+    overflow: hidden;
+    margin: 0 auto;
+    position: relative;
+}
+
+.loading-progress {
+    height: 100%;
+    background: linear-gradient(90deg, var(--primary), var(--secondary));
+    border-radius: 10px;
+    animation: loadingProgress 2s ease-in-out;
+    box-shadow: 0 0 10px var(--primary);
+}
+
+@keyframes loadingProgress {
+    0% {
+        width: 0%;
+    }
+    100% {
+        width: 100%;
+    }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .Character {
+        width: calc(32px * 4);
+        height: calc(32px * 4);
+    }
+    
+    .Character_spritesheet {
+        width: calc(128px * 4);
+    }
+    
+    .Character_shadow {
+        width: calc(32px * 4);
+        height: calc(32px * 4);
+    }
+    
+    .face-right { top: calc(-32px * 4); }
+    .face-up { top: calc(-64px * 4); }
+    .face-left { top: calc(-96px * 4); }
+    
+    .loading-name {
+        font-size: 2rem;
+    }
+    
+    .loading-bar {
+        width: 250px;
+    }
+}
+
+@media (max-width: 480px) {
+    .Character {
+        width: calc(32px * 3);
+        height: calc(32px * 3);
+    }
+    
+    .Character_spritesheet {
+        width: calc(128px * 3);
+    }
+    
+    .Character_shadow {
+        width: calc(32px * 3);
+        height: calc(32px * 3);
+    }
+    
+    .face-right { top: calc(-32px * 3); }
+    .face-up { top: calc(-64px * 3); }
+    .face-left { top: calc(-96px * 3); }
+    
+    .loading-name {
+        font-size: 1.5rem;
+    }
+    
+    .loading-subtitle {
+        font-size: 1rem;
+    }
+    
+    .loading-bar {
+        width: 200px;
+    }
+}
 body {
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
     background: var(--darker);

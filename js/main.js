@@ -335,3 +335,31 @@ style.textContent = `
     }
 `;
 document.head.appendChild(style);
+
+// ===================================
+// LOADING SCREEN
+// ===================================
+
+window.addEventListener('load', function() {
+    const loadingScreen = document.getElementById('loading-screen');
+    
+    // Hide loading screen after everything is loaded
+    setTimeout(() => {
+        loadingScreen.classList.add('hidden');
+        
+        // Remove from DOM after animation
+        setTimeout(() => {
+            loadingScreen.remove();
+        }, 500);
+    }, 2000); // Adjust timing as needed (2 seconds)
+});
+
+// Optional: Change character direction randomly
+document.addEventListener('DOMContentLoaded', function() {
+    const character = document.querySelector('.Character_spritesheet');
+    if (character) {
+        const directions = ['face-down', 'face-right', 'face-up', 'face-left'];
+        const randomDirection = directions[Math.floor(Math.random() * directions.length)];
+        character.classList.add(randomDirection);
+    }
+});
